@@ -1,6 +1,7 @@
 var d_length = 200, init_l = 0;
 var d_breadth = 200, init_b = 0;
-var svg = d3.select('body').append('svg').attr('height', '100%').attr('width','100%').style('color', 'black');
+var svg = d3.select('body').append('svg').attr('height', 600).attr('width','100%').style('color', 'black')
+.attr('transform','translate(50,0) ');
 
 var grp = svg.append('g').attr('transform', 'translate(0,0)');
 function start(){
@@ -8,7 +9,7 @@ function start(){
 		for (var j = 0; j < 3; j++) {
 
 			grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','red').on('click', function(d,i){ console.log('Clicked Red button'); }).style('padding',0);
+			.attr('fill','white').on('click', function(d,i){ console.log('Clicked Red button'); }).style('padding',0);
 			init_b+=d_breadth;
 			
 		}init_l+=d_length;
