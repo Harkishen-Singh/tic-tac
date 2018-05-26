@@ -14,12 +14,13 @@ function Id_generator() {
 
 decisionArray = [
 	[0,0,0],
-	[0,0,0],
+	[0,-1,0],
 	[0,0,0]
 ]; // 1 for X and -1 for O
 
 
  function start(){
+ 	
  	/*
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
@@ -43,7 +44,7 @@ decisionArray = [
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(0,1);console.log('Clicked' +(1))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ lines(0,1);console.log('Clicked' +(1));}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -95,7 +96,8 @@ decisionArray = [
 			});
 	init_b+=d_breadth;
 	init_l+=d_length;init_b=0;
-
+	
+	drawing();
 	default_lining();
 }
 
@@ -116,20 +118,51 @@ var x_cordinate_line2 = 5;
 var y_cordinate_line2 = 5+x_travel_line;
 function lines(j,i){
 	// making of the lines
-	decisionArray[i][j]=1;
+	console.log('i: '+i+'   j: '+j);
+	decisionArray[j][i]=1;
 	grp.append('line').attr('x1', x_cordinate_line1+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line1+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line1+x_travel_line+line_x+shifts_both_axes*i )
 	.attr('y2', y_cordinate_line1+y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
 	grp.append('line').attr('x1', x_cordinate_line2+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line2+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line2+x_travel_line +line_x+shifts_both_axes*i)
 	.attr('y2', y_cordinate_line2-y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
-	console.log(decisionArray[i]);
+	console.log(decisionArray[j]);
+	compTurn();
 
 }
-function circles() {
+function circles(i,j) {
 	// making circles
-	grp.append('circle').attr('r', radi).attr('cx',circle_x+shifts_both_axes).attr('cy',circle_y).attr('fill','none')
+	grp.append('circle').attr('r', radi).attr('cx',circle_x+shifts_both_axes*i).attr('cy',circle_y+shifts_both_axes*j).attr('fill','none')
 		.attr('stroke', 'black').attr('stroke-width','2') ;
 	
 }
 
+
+function drawing(argument) {
+	console.log('reached drawing');
+	for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				if (decisionArray[i][j]==-1) {
+					circles(i,j);
+				}
+				if (decisionArray[i][j]==1) {
+					lines(i,j);
+				}
+			}
+		}	
+
+}
+
+// actual processing
+
+function compTurn(){
+	for(var o=0; o<3;o++){
+		for (var j = 0; j < 3; j++) {
+			if (decisionArray[o][j]==1) {
+
+
+
+			}
+		}
+	}
+}
 
 start();
