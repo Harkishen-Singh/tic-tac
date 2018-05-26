@@ -12,6 +12,13 @@ function Id_generator() {
 	return x;
 }
 
+decisionArray = [
+	[0,0,0],
+	[0,0,0],
+	[0,0,0]
+]; // 1 for X and -1 for O
+
+
  function start(){
  	/*
 	for (var i = 0; i < 3; i++) {
@@ -109,12 +116,12 @@ var x_cordinate_line2 = 5;
 var y_cordinate_line2 = 5+x_travel_line;
 function lines(j,i){
 	// making of the lines
-	console.log('Got in sendLine')
+	decisionArray[i][j]=1;
 	grp.append('line').attr('x1', x_cordinate_line1+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line1+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line1+x_travel_line+line_x+shifts_both_axes*i )
 	.attr('y2', y_cordinate_line1+y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
 	grp.append('line').attr('x1', x_cordinate_line2+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line2+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line2+x_travel_line +line_x+shifts_both_axes*i)
 	.attr('y2', y_cordinate_line2-y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
-
+	console.log(decisionArray[i]);
 
 }
 function circles() {
