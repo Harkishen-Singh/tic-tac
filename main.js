@@ -38,19 +38,25 @@ decisionArray = [
 	}
 	*/
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[0][0]=1;drawing();console.log('Clicked' +(0))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][0]!=-1){
+
+				decisionArray[0][0]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[0][1]=1;drawing();console.log('Clicked' +(1));}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][1]!=-1){
+
+				decisionArray[0][1]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[0][2]=1;drawing();console.log('Clicked' +(2))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][2]!=-1){
+
+				decisionArray[0][2]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -58,19 +64,25 @@ decisionArray = [
 	init_l+=d_length;init_b=0;
 
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[1][0]=1;drawing();console.log('Clicked' +(3))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][0]!=-1){
+
+				decisionArray[1][0]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[1][1]=1;drawing();console.log('Clicked' +(4))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][1]!=-1){
+
+				decisionArray[1][1]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[1][2]=1;drawing();console.log('Clicked' +(5))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][2]!=-1){
+
+				decisionArray[1][2]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -78,19 +90,25 @@ decisionArray = [
 	init_l+=d_length;init_b=0;
 
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[2][0]=1;drawing();console.log('Clicked' +(6))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][0]!=-1){
+
+				decisionArray[2][0]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[2][1]=1;drawing();console.log('Clicked' +(7))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][1]!=-1){
+
+				decisionArray[2][1]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ decisionArray[2][2]=1;drawing();console.log('Clicked' +(8))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][2]!=-1){
+
+				decisionArray[2][2]=1;drawing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
