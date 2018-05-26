@@ -38,39 +38,19 @@ decisionArray = [
 	}
 	*/
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(0,0);console.log('Clicked' +(0))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[0][0]=1;drawing();console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(0,1);console.log('Clicked' +(1));}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[0][1]=1;drawing();console.log('Clicked' +(1));}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(0,2);console.log('Clicked' +(2))}).style('padding',0)
-			.attr('id', function() {
-				return Id_generator().slug;
-			});
-	init_b+=d_breadth;
-	init_l+=d_length;init_b=0;
-
-	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(1,0);console.log('Clicked' +(3))}).style('padding',0)
-			.attr('id', function() {
-				return Id_generator().slug;
-			});
-	init_b+=d_breadth;
-	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(1,1);console.log('Clicked' +(4))}).style('padding',0)
-			.attr('id', function() {
-				return Id_generator().slug;
-			});
-	init_b+=d_breadth;
-	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(1,2);console.log('Clicked' +(5))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[0][2]=1;drawing();console.log('Clicked' +(2))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -78,19 +58,39 @@ decisionArray = [
 	init_l+=d_length;init_b=0;
 
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(2,0);console.log('Clicked' +(6))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[1][0]=1;drawing();console.log('Clicked' +(3))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(2,1);console.log('Clicked' +(7))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[1][1]=1;drawing();console.log('Clicked' +(4))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
 	init_b+=d_breadth;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(){ lines(2,2);console.log('Clicked' +(8))}).style('padding',0)
+			.attr('fill','white').on('click' ,function(){ decisionArray[1][2]=1;drawing();console.log('Clicked' +(5))}).style('padding',0)
+			.attr('id', function() {
+				return Id_generator().slug;
+			});
+	init_b+=d_breadth;
+	init_l+=d_length;init_b=0;
+
+	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
+			.attr('fill','white').on('click' ,function(){ decisionArray[2][0]=1;drawing();console.log('Clicked' +(6))}).style('padding',0)
+			.attr('id', function() {
+				return Id_generator().slug;
+			});
+	init_b+=d_breadth;
+	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
+			.attr('fill','white').on('click' ,function(){ decisionArray[2][1]=1;drawing();console.log('Clicked' +(7))}).style('padding',0)
+			.attr('id', function() {
+				return Id_generator().slug;
+			});
+	init_b+=d_breadth;
+	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
+			.attr('fill','white').on('click' ,function(){ decisionArray[2][2]=1;drawing();console.log('Clicked' +(8))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -116,10 +116,11 @@ var shifts_both_axes = 220;
 var x_travel_line = 100, y_travel_line = 100;
 var x_cordinate_line2 = 5;
 var y_cordinate_line2 = 5+x_travel_line;
+
 function lines(j,i){
 	// making of the lines
 	console.log('i: '+i+'   j: '+j);
-	decisionArray[j][i]=1;
+	//decisionArray[j][i]=1;
 	grp.append('line').attr('x1', x_cordinate_line1+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line1+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line1+x_travel_line+line_x+shifts_both_axes*i )
 	.attr('y2', y_cordinate_line1+y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
 	grp.append('line').attr('x1', x_cordinate_line2+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line2+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line2+x_travel_line +line_x+shifts_both_axes*i)
@@ -137,6 +138,9 @@ function circles(i,j) {
 
 
 function drawing(argument) {
+	console.log(decisionArray[0]);
+	console.log(decisionArray[1]);
+	console.log(decisionArray[2]);
 	console.log('reached drawing');
 	for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
@@ -144,6 +148,7 @@ function drawing(argument) {
 					circles(i,j);
 				}
 				if (decisionArray[i][j]==1) {
+					console.log('this is X');
 					lines(i,j);
 				}
 			}
