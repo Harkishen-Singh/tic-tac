@@ -2,7 +2,13 @@ var d_length = 200, init_l = 0;
 var d_breadth = 200, init_b = 0;
 var svg = d3.select('body').append('svg').attr('height', 600).attr('width','100%').style('color', 'black')
 .attr('transform','translate(50,0) ');
-
+var x_cordinate_line1 = 5, line_x=20; // 5 pixel from left margin
+var y_cordinate_line1 = 5, line_y=20 ; // 5 pixel from the top margin
+var radi = 70, circle_x = 80, circle_y = 80 ;
+var shifts_both_axes = 220;
+var x_travel_line = 100, y_travel_line = 100;
+var x_cordinate_line2 = 5;
+var y_cordinate_line2 = 5+x_travel_line;
 
 
 var grp = svg.append('g').attr('transform', 'translate(0,0)');
@@ -17,26 +23,12 @@ decisionArray = [
 	[0,-1,0],
 	[0,0,0]
 ]; // 1 for X and -1 for O
+var checker_firstRun = 0;
+drawing();
 
-
- function start(){
- 	
- 	/*
-	for (var i = 0; i < 3; i++) {
-		for (var j = 0; j < 3; j++) {
-
-			grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
-			.attr('fill','white').on('click' ,function(d){ lines(d);console.log('Clicked' +(i+j))}).style('padding',0)
-			.attr('id', function() {
-				return Id_generator().slug;
-			});
-			init_b+=d_breadth;
-			
-		}init_l+=d_length;
-		init_b=0;
-		
-	}
-	*/
+ function start(){default_lining();
+ 	checker_firstRun++;
+ 	if (checker_firstRun==1) {drawing();console.log('Got the drawing part');}
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][0]!=-1){
 
@@ -115,8 +107,8 @@ decisionArray = [
 	init_b+=d_breadth;
 	init_l+=d_length;init_b=0;
 	
-	drawing();
-	default_lining();
+	
+	
 }
 
 function default_lining(argument) {
@@ -127,13 +119,7 @@ function default_lining(argument) {
 	svg.append('line').attr('x1', 0).attr('y1', d_length).attr('x2',d_breadth*3).attr('y2',d_length).style('stroke','black');
 	svg.append('line').attr('x1', 0).attr('y1', d_length*2).attr('x2',d_breadth*3).attr('y2',d_length*2).style('stroke','black');
 }
-var x_cordinate_line1 = 5, line_x=20; // 5 pixel from left margin
-var y_cordinate_line1 = 5, line_y=20 ; // 5 pixel from the top margin
-var radi = 70, circle_x = 80, circle_y = 80 ;
-var shifts_both_axes = 220;
-var x_travel_line = 100, y_travel_line = 100;
-var x_cordinate_line2 = 5;
-var y_cordinate_line2 = 5+x_travel_line;
+
 
 function lines(j,i){
 	// making of the lines
@@ -144,13 +130,14 @@ function lines(j,i){
 	grp.append('line').attr('x1', x_cordinate_line2+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line2+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line2+x_travel_line +line_x+shifts_both_axes*i)
 	.attr('y2', y_cordinate_line2-y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'black').attr('stroke-width','2');
 	console.log(decisionArray[j]);
-	compTurn();
+	
 
 }
 function circles(i,j) {
 	// making circles
 	grp.append('circle').attr('r', radi).attr('cx',circle_x+shifts_both_axes*i).attr('cy',circle_y+shifts_both_axes*j).attr('fill','none')
 		.attr('stroke', 'black').attr('stroke-width','2') ;
+
 	
 }
 
@@ -166,26 +153,54 @@ function drawing(argument) {
 					circles(i,j);
 				}
 				if (decisionArray[i][j]==1) {
-					console.log('this is X');
+					//console.log('this is X');
 					lines(i,j);
 				}
 			}
 		}	
+	computing();
 
 }
 
 // actual processing
 
-function compTurn(){
-	for(var o=0; o<3;o++){
-		for (var j = 0; j < 3; j++) {
-			if (decisionArray[o][j]==1) {
+var winningConditions = [
+	[0,1,2],[0,3,6],[6,7,8],[2,5,8],[0,4,8],[2,4,6],[1,4,7],[3,4,5]
+];
 
 
+function computing(){
 
-			}
-		}
+	/* user winning conditions prevention checks */
+
+	if (
+		(decisionArray[0][0]==1 && decisionArray[0][2]== 1) && decisionArray[1][0] != -1
+		) {
+		decisionArray[1][0] == -1;
 	}
+	else if (
+		(decisionArray[2][0]==1 && decisionArray[2][2]== 1)  && decisionArray[2][1] != -1
+		) {
+		decisionArray[2][1] == -1;
+	}
+	else if (
+		(decisionArray[0][0]==1 && decisionArray[2][0]== 1) && decisionArray[0][1] != -1
+		) {
+		decisionArray[0][1] == -1;
+	}
+	else if (
+		(decisionArray[0][2]==1 && decisionArray[2][2]== 1) && decisionArray[1][2] != -1
+		) {
+		decisionArray[1][2] == -1;
+	}
+
+	/* endblock */
+
+
+	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 ) {
+		
+	}
+	start();
 }
 
 start();
