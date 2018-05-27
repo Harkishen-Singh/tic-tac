@@ -182,6 +182,43 @@ function computing(){
 	reachComputing++;
 	console.log(reachComputing);
 
+	/* winning condition check */
+
+	if(decisionArray[0][0]==1 && decisionArray[0][1]==1 && decisionArray[0][2]==1 )
+		alert('X wins!');
+	if(decisionArray[0][0]==-1 && decisionArray[0][1]==-1 && decisionArray[0][2]==-1 )
+		alert('O wins!');
+	if(decisionArray[0][0]==1 && decisionArray[1][0]==1 && decisionArray[2][0]==1 )
+		alert('X wins!');
+	if(decisionArray[0][0]==-1 && decisionArray[1][0]==-1 && decisionArray[2][0]==-1 )
+		alert('O wins!');
+	if(decisionArray[2][0]==1 && decisionArray[2][1]==1 && decisionArray[2][2]==1 )
+		alert('X wins!');
+	if(decisionArray[2][0]==-1 && decisionArray[2][1]==-1 && decisionArray[2][2]==-1 )
+		alert('O wins!');
+	if(decisionArray[0][2]==1 && decisionArray[1][2]==1 && decisionArray[2][2]==1 )
+		alert('X wins!');
+	if(decisionArray[0][2]==-1 && decisionArray[1][2]==-1 && decisionArray[2][2]==-1 )
+		alert('O wins!');
+	if(decisionArray[0][0]==1 && decisionArray[1][1]==1 && decisionArray[2][2]==1 )
+		alert('X wins!');
+	if(decisionArray[0][0]==-1 && decisionArray[1][1]==-1 && decisionArray[2][2]==-1 )
+		alert('O wins!');
+	if(decisionArray[0][2]==1 && decisionArray[1][1]==1 && decisionArray[2][0]==1 )
+		alert('X wins!');
+	if(decisionArray[0][2]==-1 && decisionArray[1][1]==-1 && decisionArray[2][0]==-1 )
+		alert('O wins!');
+	if(decisionArray[0][1]==1 && decisionArray[1][1]==1 && decisionArray[2][1]==1 )
+		alert('X wins!');
+	if(decisionArray[0][1]==-1 && decisionArray[1][1]==-1 && decisionArray[2][1]==-1 )
+		alert('O wins!');
+	if(decisionArray[1][0]==1 && decisionArray[1][1]==1 && decisionArray[1][2]==1 )
+		alert('X wins!');
+	if(decisionArray[1][0]==-1 && decisionArray[1][1]==-1 && decisionArray[1][2]==-1 )
+		alert('O wins!');
+
+	/* endblock */
+
 	/* user winning conditions prevention checks */
 
 	if (
