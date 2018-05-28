@@ -111,7 +111,7 @@ var checker_firstRun = 0;
 			});
 	init_b+=d_breadth;
 	init_l+=d_length;init_b=0;
-	if (checker_firstRun==1) {drawing(arr=decisionArray);console.log('Got the drawing part');}
+	if (checker_firstRun==1) {drawing(arr=decisionArray);}
 	
 	
 }
@@ -134,7 +134,7 @@ function lines(j,i){
 	.attr('y2', y_cordinate_line1+y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'green').attr('stroke-width','3');
 	grp.append('line').attr('x1', x_cordinate_line2+line_x+shifts_both_axes*i).attr('y1', y_cordinate_line2+line_y+shifts_both_axes*j).attr('x2',x_cordinate_line2+x_travel_line +line_x+shifts_both_axes*i)
 	.attr('y2', y_cordinate_line2-y_travel_line+line_y+shifts_both_axes*j).style('stroke', 'green').attr('stroke-width','3');
-	console.log(decisionArray[j]);
+	
 	
 
 }
@@ -148,10 +148,14 @@ function circles(i,j) {
 
 
 function drawing(argument=0,arr=decisionArray) {
-	console.log('reached drawing');
+	console.log('array is ');
+	console.log(arr[0]);
+	console.log(arr[1]);
+	console.log(arr[2])
+	
 	for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
-				console.log('array is ' +arr);
+				
 
 				try{
 				if (arr[i][j]==-1) {
@@ -228,7 +232,7 @@ function computing(){
 
 	/* training for O winning */ 
 	if( (decisionArray[0][0]==-1 && decisionArray[1][1]==-1 && decisionArray[2][2]!=1) || (decisionArray[2][2]==-1 && decisionArray[1][1]==-1 && decisionArray[0][2]!=1))
-		{	if(decisionArray!=1)
+		{	if(decisionArray[2][2]!=1)
 				decisionArray[2][2]=-1;
 			else if(decisionArray[0][2]!=1) decisionArray[0][2]=-1;
 			alert('O wins');exiting()}
@@ -279,8 +283,8 @@ function computing(){
 
 	/* endblock */
 
-	if(ch1 == false)
-	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 || decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ) {
+	if(ch1 == false){
+	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 || decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[1][0]==1 ) {
 		console.log('this in checks')
 		console.log(decisionArray)
 		if (decisionArray[0][0]!=1 && decisionArray[2][2]!=1) {
@@ -292,8 +296,7 @@ function computing(){
 			console.log('second part');ch2=true;
 		}	
 	}
-	if(ch2 == false && ch1 == false)
-	if (decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ){
+	else if (decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ){
 		console.log('this in checks part 2');
 		console.log(decisionArray);
 		if (decisionArray[0][1]!=1 && decisionArray[2][1]!=1) {
@@ -303,19 +306,22 @@ function computing(){
 		else if (decisionArray[1][0]!=1 && decisionArray[1][2]!=1) {
 			decisionArray[1][0]=-1;
 			console.log('second part checks 2')
-		}ch3 = true;
-	}
+		}ch2 = true;
+	}}
 	if (ch1==false && ch2==false && ch3==false && ch4==false) {
+		console.log('ch4 became '+ch4);
 		for (var i = 0; i <3; i++) {
 			for (var k = 0; k < 3; k++) {
 				if (decisionArray[i][k]==0) {
 					decisionArray[i][k] = -1;
-					console.log('Random one')
+					console.log('Random one');
+					ch4=true;
 					break;
 				}
 			}
+			if (ch4==true) {break;}
 		}
-		ch4=true;
+		
 	}
 	
 		checkerDrawing = 0;
