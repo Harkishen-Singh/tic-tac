@@ -251,6 +251,16 @@ function computing(){
 
 
 	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 ) {
+		console.log('this in checks')
+		console.log(decisionArray)
+		if (decisionArray[0][0]!=1 && decisionArray[2][2]!=1) {
+			decisionArray[0][0]=-1;
+			console.log('firsst part')
+		}
+		else if (decisionArray[0][2]!=1 && decisionArray[2][0]!=1) {
+			decisionArray[0][2]=-1;
+			console.log('second part')
+		}
 		
 	}
 	checkerDrawing = 0;
