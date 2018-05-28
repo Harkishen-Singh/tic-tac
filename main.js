@@ -31,7 +31,7 @@ var checker_firstRun = 0;
  default_lining();
 
  	checker_firstRun++;
- 	if (checker_firstRun==1) {drawing(arr=decisionArray);console.log('Got the drawing part');}
+ 	
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][0]!=-1){
 
@@ -111,7 +111,7 @@ var checker_firstRun = 0;
 			});
 	init_b+=d_breadth;
 	init_l+=d_length;init_b=0;
-	drawing(arr=decisionArray);
+	if (checker_firstRun==1) {drawing(arr=decisionArray);console.log('Got the drawing part');}
 	
 	
 }
@@ -257,24 +257,24 @@ function computing(){
 	if (
 		(decisionArray[0][0]==1 && decisionArray[0][2]== 1) && decisionArray[1][0] ==0
 		) {
-		decisionArray[0][1] =-1;drawing(arr=decisionArray);ch1=true;
+		decisionArray[0][1] =-1;ch1=true;
 	
 	}
 	 else if (
 		(decisionArray[2][0]==1 && decisionArray[2][2]== 1)  && decisionArray[2][1]==0
 		) {
-		decisionArray[2][1] = -1;drawing(arr=decisionArray);ch1=true;
+		decisionArray[2][1] = -1;ch1=true;
 	}
 	 else if (
 		(decisionArray[0][0]==1 && decisionArray[2][0]== 1) && decisionArray[1][0] ==0
 		) {
 		decisionArray[1][0] = -1;ch1=true;
-		drawing(arr=decisionArray);
+		
 	}
 	else if (
 		(decisionArray[0][2]==1 && decisionArray[2][2]== 1) && decisionArray[1][2]==0
 		) {
-		decisionArray[1][2] = -1;drawing(arr=decisionArray);ch1=true;
+		decisionArray[1][2] = -1;ch1=true;
 	}
 
 	/* endblock */
