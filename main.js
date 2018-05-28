@@ -280,6 +280,11 @@ function computing(){
 		) {
 		decisionArray[1][2] = -1;ch1=true;
 	}
+	else if (
+		(decisionArray[2][1]==1 && decisionArray[2][2]== 1) && decisionArray[2][0]==0
+		) {
+		decisionArray[2][0] = -1;ch1=true;
+	}
 
 	/* endblock */
 
