@@ -11,7 +11,7 @@ var x_cordinate_line2 = 5;
 var y_cordinate_line2 = 5+x_travel_line;
 var grp = svg.append('g').attr('transform', 'translate(0,0)');
 var reachComputing = 0, checkerDrawing = 0;
-var ch1=false, ch2=false,ch3=false,ch4=false;
+var ch1=false, ch2=false,ch3=false,ch4=false,ended=false;
 
 
 function Id_generator() {
@@ -148,6 +148,7 @@ function circles(i,j) {
 
 
 function drawing(argument=0,arr=decisionArray) {
+	if (ended==false) {
 	console.log('array is ');
 	console.log(arr[0]);
 	console.log(arr[1]);
@@ -176,7 +177,7 @@ function drawing(argument=0,arr=decisionArray) {
 			}
 		}	
 	
-}
+}}
 }
 
 // actual processing
@@ -185,6 +186,7 @@ var winningConditions = [
 	[0,1,2],[0,3,6],[6,7,8],[2,5,8],[0,4,8],[2,4,6],[1,4,7],[3,4,5]
 ];
 function exiting(argument) {
+	ended = true;
 	exit;
 }
 
@@ -325,13 +327,27 @@ function computing(){
 				}
 			}
 			if (ch4==true) {break;}
-			else{alert('Its Draw..!');}
+		
 		}
 		
 	}
+	let ccc = true;
+	for (var i = 0; i <3; i++) {
+			for (var k = 0; k < 3; k++) {
+				if (decisionArray[i][k]!=0) {
+					ccc=true;
+				}
+				else{
+					ccc = false;
+					break;
+				}
+			}
+			
+	}
 	
-		checkerDrawing = 0;
-		drawing(arr=decisionArray);
+	
+	checkerDrawing = 0;
+	drawing(arr=decisionArray);
 		
 		
 		
