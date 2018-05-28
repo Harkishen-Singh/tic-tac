@@ -325,6 +325,7 @@ function computing(){
 				}
 			}
 			if (ch4==true) {break;}
+			else{alert('Its Draw..!');}
 		}
 		
 	}
