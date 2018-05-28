@@ -235,8 +235,22 @@ function computing(){
 				decisionArray[2][2]=-1;
 			else if(decisionArray[0][2]!=1) decisionArray[0][2]=-1;
 			alert('O wins');exiting()}
-	if( (decisionArray[0][2]==-1 && decisionArray[1][1]==-1 && decisionArray[2][0]!=1)  )
-		{decisionArray[2][2]=-1;alert('O wins');exiting()}
+	if( (decisionArray[0][2]==-1 && decisionArray[1][1]==-1 && decisionArray[2][0]!=1) || (decisionArray[2][0]==-1 && decisionArray[1][1]==-1 && decisionArray[0][2]!=1) )
+		{decisionArray[0][2]=-1;alert('O wins');exiting()}
+
+	if( (decisionArray[0][1]==-1 && decisionArray[1][1]==-1 && decisionArray[2][1]!=1) || (decisionArray[2][1]==-1 && decisionArray[1][1]==-1 && decisionArray[0][1]!=1))
+		{	if(decisionArray!=1)
+				decisionArray[2][1]=-1;
+			else if(decisionArray[0][1]!=1) decisionArray[0][1]=-1;
+			alert('O wins');exiting()}
+	if( (decisionArray[1][0]==-1 && decisionArray[1][1]==-1 && decisionArray[1][2]!=1) || (decisionArray[1][2]==-1 && decisionArray[1][1]==-1 && decisionArray[1][0]!=1) )
+		{
+			if(decisionArray[1][2]!=1) {decisionArray[1][2]=-1;}
+			else if(decisionArray[1][0]!=1){decisionArray[1][0]==-1;}
+			alert('O wins');
+			exiting();
+
+	}
 
 
 	/* endblock */
