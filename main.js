@@ -51,7 +51,9 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][2]!=-1){
 
-				decisionArray[0][2]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(2))}).style('padding',0)
+				decisionArray[0][2]=1;drawing(arr=decisionArray);computing();
+			}else{alert('Wrong Clicked.!')}console.log('Clicked' +(2))
+		}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -180,46 +182,62 @@ function drawing(argument=0,arr) {
 var winningConditions = [
 	[0,1,2],[0,3,6],[6,7,8],[2,5,8],[0,4,8],[2,4,6],[1,4,7],[3,4,5]
 ];
+function exiting(argument) {
+	exit;
+}
 
 
 function computing(){
 	reachComputing++;
 	console.log(reachComputing);
+	let ch1=false, ch2=false,ch3=false,ch4=false;
 
 	/* winning condition check */
 
 	if(decisionArray[0][0]==1 && decisionArray[0][1]==1 && decisionArray[0][2]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][0]==-1 && decisionArray[0][1]==-1 && decisionArray[0][2]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[0][0]==1 && decisionArray[1][0]==1 && decisionArray[2][0]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][0]==-1 && decisionArray[1][0]==-1 && decisionArray[2][0]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[2][0]==1 && decisionArray[2][1]==1 && decisionArray[2][2]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[2][0]==-1 && decisionArray[2][1]==-1 && decisionArray[2][2]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[0][2]==1 && decisionArray[1][2]==1 && decisionArray[2][2]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][2]==-1 && decisionArray[1][2]==-1 && decisionArray[2][2]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[0][0]==1 && decisionArray[1][1]==1 && decisionArray[2][2]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][0]==-1 && decisionArray[1][1]==-1 && decisionArray[2][2]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[0][2]==1 && decisionArray[1][1]==1 && decisionArray[2][0]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][2]==-1 && decisionArray[1][1]==-1 && decisionArray[2][0]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[0][1]==1 && decisionArray[1][1]==1 && decisionArray[2][1]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[0][1]==-1 && decisionArray[1][1]==-1 && decisionArray[2][1]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
 	if(decisionArray[1][0]==1 && decisionArray[1][1]==1 && decisionArray[1][2]==1 )
-		alert('X wins!');
+		{alert('X wins!');exiting();}
 	if(decisionArray[1][0]==-1 && decisionArray[1][1]==-1 && decisionArray[1][2]==-1 )
-		alert('O wins!');
+		{alert('O wins!');exiting();}
+
+	/* endblock */
+
+	/* training for O winning */ 
+	if( (decisionArray[0][0]==-1 && decisionArray[1][1]==-1 && decisionArray[2][2]!=1) || (decisionArray[2][2]==-1 && decisionArray[1][1]==-1 && decisionArray[0][2]!=1))
+		{	if(decisionArray!=1)
+				decisionArray[2][2]=-1;
+			else if(decisionArray[0][2]!=1) decisionArray[0][2]=-1;
+			alert('O wins');exiting()}
+	if( (decisionArray[0][2]==-1 && decisionArray[1][1]==-1 && decisionArray[2][0]!=1)  )
+		{decisionArray[2][2]=-1;alert('O wins');exiting()}
+
 
 	/* endblock */
 
@@ -229,43 +247,58 @@ function computing(){
 		(decisionArray[0][0]==1 && decisionArray[0][2]== 1) && decisionArray[1][0] ==0
 		) {
 		decisionArray[0][1] =-1;drawing(arr=decisionArray);
+	ch1=true;
 	}
-	 if (
+	 else if (
 		(decisionArray[2][0]==1 && decisionArray[2][2]== 1)  && decisionArray[2][1]==0
 		) {
-		decisionArray[2][1] = -1;drawing(arr=decisionArray);
+		decisionArray[2][1] = -1;drawing(arr=decisionArray);ch1=true;
 	}
-	 if (
+	 else if (
 		(decisionArray[0][0]==1 && decisionArray[2][0]== 1) && decisionArray[1][0] ==0
 		) {
 		decisionArray[1][0] = -1;
-		drawing(arr=decisionArray);
+		drawing(arr=decisionArray);ch1=true;
 	}
-	 if (
+	else if (
 		(decisionArray[0][2]==1 && decisionArray[2][2]== 1) && decisionArray[1][2]==0
 		) {
-		decisionArray[1][2] = -1;drawing(arr=decisionArray);
+		decisionArray[1][2] = -1;drawing(arr=decisionArray);ch1=true;
 	}
 
 	/* endblock */
 
-
-	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 ) {
+	if(ch1 == false)
+	if (decisionArray[0][0]==1 || decisionArray[0][2]==1 || decisionArray[2][0]==1 || decisionArray[2][2]==1 || decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ) {
 		console.log('this in checks')
 		console.log(decisionArray)
 		if (decisionArray[0][0]!=1 && decisionArray[2][2]!=1) {
 			decisionArray[0][0]=-1;
-			console.log('firsst part')
+			console.log('firsst part');ch2=true;
 		}
 		else if (decisionArray[0][2]!=1 && decisionArray[2][0]!=1) {
 			decisionArray[0][2]=-1;
 			console.log('second part')
-		}
-		
+		}	ch2=true;
 	}
-	checkerDrawing = 0;
-	drawing(arr=decisionArray);
-	start();
+	if(ch2 == false && ch1 == false)
+	if (decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ){
+		console.log('this in checks part 2');
+		console.log(decisionArray);
+		if (decisionArray[0][1]!=1 && decisionArray[2][1]!=1) {
+			decisionArray[2][1]=-1;
+			console.log('firsst part checks 2')
+		}
+		else if (decisionArray[1][0]!=1 && decisionArray[1][2]!=1) {
+			decisionArray[1][0]=-1;
+			console.log('second part checks 2')
+		}
+	}
+	
+		checkerDrawing = 0;
+		drawing(arr=decisionArray);
+		start();
+		
 }
 
 start();
