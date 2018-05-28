@@ -11,7 +11,7 @@ var x_cordinate_line2 = 5;
 var y_cordinate_line2 = 5+x_travel_line;
 var grp = svg.append('g').attr('transform', 'translate(0,0)');
 var reachComputing = 0, checkerDrawing = 0;
-
+var ch1=false, ch2=false,ch3=false,ch4=false;
 
 
 function Id_generator() {
@@ -35,7 +35,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][0]!=-1){
 
-				decisionArray[0][0]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
+				decisionArray[0][0]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(0))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -43,7 +43,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][1]!=-1){
 
-				decisionArray[0][1]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(1))}).style('padding',0)
+				decisionArray[0][1]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(1))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -51,7 +51,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[0][2]!=-1){
 
-				decisionArray[0][2]=1;drawing(arr=decisionArray);computing();
+				decisionArray[0][2]=1;ch1=ch2=ch3=ch4=false;computing();
 			}else{alert('Wrong Clicked.!')}console.log('Clicked' +(2))
 		}).style('padding',0)
 			.attr('id', function() {
@@ -63,7 +63,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][0]!=-1){
 
-				decisionArray[1][0]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(3))}).style('padding',0)
+				decisionArray[1][0]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(3))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -71,7 +71,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][1]!=-1){
 
-				decisionArray[1][1]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(4))}).style('padding',0)
+				decisionArray[1][1]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(4))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -79,7 +79,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[1][2]!=-1){
 
-				decisionArray[1][2]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(5))}).style('padding',0)
+				decisionArray[1][2]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(5))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -89,7 +89,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][0]!=-1){
 
-				decisionArray[2][0]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(6))}).style('padding',0)
+				decisionArray[2][0]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(6))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -97,7 +97,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][1]!=-1){
 
-				decisionArray[2][1]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(7))}).style('padding',0)
+				decisionArray[2][1]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(7))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -105,7 +105,7 @@ var checker_firstRun = 0;
 	grp.append('rect').attr('x', init_b).attr('y',init_l).attr('width', d_breadth).attr('height', d_length)
 			.attr('fill','white').on('click' ,function(){ if(decisionArray[2][2]!=-1){
 
-				decisionArray[2][2]=1;drawing(arr=decisionArray);computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(8))}).style('padding',0)
+				decisionArray[2][2]=1;ch1=ch2=ch3=ch4=false;computing();}else{alert('Wrong Clicked.!')}console.log('Clicked' +(8))}).style('padding',0)
 			.attr('id', function() {
 				return Id_generator().slug;
 			});
@@ -147,9 +147,7 @@ function circles(i,j) {
 }
 
 
-function drawing(argument=0,arr) {
-	console.log(argument);
-	
+function drawing(argument=0,arr=decisionArray) {
 	console.log('reached drawing');
 	for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
@@ -190,7 +188,6 @@ function exiting(argument) {
 function computing(){
 	reachComputing++;
 	console.log(reachComputing);
-	let ch1=false, ch2=false,ch3=false,ch4=false;
 
 	/* winning condition check */
 
@@ -260,8 +257,8 @@ function computing(){
 	if (
 		(decisionArray[0][0]==1 && decisionArray[0][2]== 1) && decisionArray[1][0] ==0
 		) {
-		decisionArray[0][1] =-1;drawing(arr=decisionArray);
-	ch1=true;
+		decisionArray[0][1] =-1;drawing(arr=decisionArray);ch1=true;
+	
 	}
 	 else if (
 		(decisionArray[2][0]==1 && decisionArray[2][2]== 1)  && decisionArray[2][1]==0
@@ -271,8 +268,8 @@ function computing(){
 	 else if (
 		(decisionArray[0][0]==1 && decisionArray[2][0]== 1) && decisionArray[1][0] ==0
 		) {
-		decisionArray[1][0] = -1;
-		drawing(arr=decisionArray);ch1=true;
+		decisionArray[1][0] = -1;ch1=true;
+		drawing(arr=decisionArray);
 	}
 	else if (
 		(decisionArray[0][2]==1 && decisionArray[2][2]== 1) && decisionArray[1][2]==0
@@ -292,8 +289,8 @@ function computing(){
 		}
 		else if (decisionArray[0][2]!=1 && decisionArray[2][0]!=1) {
 			decisionArray[0][2]=-1;
-			console.log('second part')
-		}	ch2=true;
+			console.log('second part');ch2=true;
+		}	
 	}
 	if(ch2 == false && ch1 == false)
 	if (decisionArray[0][1]==1 || decisionArray[1][2]==1 || decisionArray[2][1]==1 || decisionArray[2][0]==1 ){
@@ -306,12 +303,25 @@ function computing(){
 		else if (decisionArray[1][0]!=1 && decisionArray[1][2]!=1) {
 			decisionArray[1][0]=-1;
 			console.log('second part checks 2')
+		}ch3 = true;
+	}
+	if (ch1==false && ch2==false && ch3==false && ch4==false) {
+		for (var i = 0; i <3; i++) {
+			for (var k = 0; k < 3; k++) {
+				if (decisionArray[i][k]==0) {
+					decisionArray[i][k] = -1;
+					console.log('Random one')
+					break;
+				}
+			}
 		}
+		ch4=true;
 	}
 	
 		checkerDrawing = 0;
 		drawing(arr=decisionArray);
-		start();
+		
+		
 		
 }
 
